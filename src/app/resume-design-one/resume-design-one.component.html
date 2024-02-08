@@ -1,0 +1,136 @@
+<!-- 
+
+<section class="user-detail-container" *ngIf="data">
+  <div class="container">
+    <div class="user-details-container">
+      <div class="user-avatar"> 
+        <p>{{ data.BasicInfo?.lastName?.slice(0,1) | uppercase }}{{ data.BasicInfo?.firstName?.slice(0,1) | uppercase }}</p>
+      </div>
+      <div class="user-details">
+        <div class="user-name">
+          <h2>{{ data.BasicInfo?.firstName }} {{data.BasicInfo?.lastName}}</h2>
+        </div>
+        <p><b>Email:</b> {{ data.BasicInfo?.email }}</p>
+      
+        <p><b>Date of birth:</b> {{ data.BasicInfo?.dob }}</p>
+        <div class="user-name">
+          <h3>Address</h3>
+        </div>
+        <p>🏡 {{ data.address?.country }}, {{ data.address?.city }}, {{ data.address?.state }}, {{ data.address?.zipCode }}</p>
+        <hr>
+        <div class="user-name">
+          <h3>Skills</h3>
+        </div>
+        <ul>
+          <li *ngFor="let skill of data.skills">{{ skill }}</li>
+        </ul>
+        <hr>
+        <div class="user-name">
+          <h3>Experience</h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Company Name</th>
+              <th>Company Position</th>
+              <th>Company Location</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let experience of data.experiences; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ experience.companyName }}</td>
+              <td>{{ experience.position }}</td>
+              <td>{{ experience.experience }}</td>
+              <td>{{ experience.startDate }}</td>
+              <td>{{ experience.endDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="user-name">
+          <h3>Experience</h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Company Name</th>
+              <th>Company Position</th>
+              <th>Company Location</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let experience of data.experiences; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ experience.companyName }}</td>
+              <td>{{ experience.position }}</td>
+              <td>{{ experience.experience }}</td>
+              <td>{{ experience.startDate }}</td>
+              <td>{{ experience.endDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<body>
+    <div class="resume">
+        <div class="header">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture" />
+            <h1>{{ data.BasicInfo?.firstName }} {{ data.BasicInfo?.lastName }}</h1>
+        </div>
+        <div class="contact-info">
+            <ul>
+                <li><i class="fas fa-envelope"></i> {{ data.BasicInfo?.email }}</li>
+                <li><i class="fas fa-phone"></i> {{ data.BasicInfo?.mNo }}</li>
+                <li><i class="fas fa-map-marker-alt"></i> {{ data.address?.country }}, {{ data.address?.city }}, {{ data.address?.state }}, {{ data.address?.zipCode }}</li>
+                <li><i class="fab fa-linkedin"></i> {{ data.BasicInfo?.linkedinProfile }}</li>
+                <li><i class="fas fa-birthday-cake"></i> {{ data.BasicInfo?.dob }}</li>
+            </ul>
+        </div>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>{{ data.BasicInfo?.summary }}</p>
+        </div>
+        <div class="education">
+            <h2>Education</h2>
+            <div *ngFor="let item of data.education">
+                <p>
+                    <strong>{{ item.course }}</strong><br>
+                    {{ item.school }} ({{ item.passingYear }})<br>
+                    Percentage: {{ item.percentage }}
+                </p>
+            </div>
+        </div>
+        <div class="skills">
+            <h2>Skills</h2>
+            <div *ngFor="let item of data.skills">
+                <ul>
+                    <li>{{ item }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="experience">
+            <h2>Experience</h2>
+            <div *ngFor="let item of data.experiences">
+                <h4>{{ item.companyName }}</h4>
+                <p>{{ item.position }}</p>
+                <ul>
+                    <li><strong>Experience:</strong> {{ item.experience }}</li>
+                    <li><strong>Time:</strong> {{ item.startDate }} To {{ item.endDate }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+

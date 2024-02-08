@@ -1,0 +1,107 @@
+<body>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+  <div class="resume">
+    <div class="resume_left">
+      <div class="resume_profile">
+        <img src="https://i.imgur.com/eCijVBe.png" alt="profile_pic" />
+      </div>
+      <div class="resume_content">
+        <div class="resume_item resume_info">
+          <div class="title">
+            <p class="bold">
+              {{ data.BasicInfo?.firstName }} {{ data.BasicInfo?.lastName }}
+            </p>
+          </div>
+          <ul>
+            <li>
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="data">
+                {{ data.address?.street }} {{ data.address?.city }} <br />{{
+                  data.address?.state
+                }}
+                <br />
+                {{ data.address?.country }}-{{ data.address?.zipCode }}
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="data">{{ data.BasicInfo?.mNo }}</div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="data">{{ data.BasicInfo?.email }}</div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-linkedin"></i>
+              </div>
+              <div class="data">{{ data.BasicInfo?.linkedinProfile }}</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume_item resume_skills">
+          <div class="title">
+            <p class="bold">skill's</p>
+          </div>
+          <ul>
+            <li *ngFor="let item of data.skills">
+              <div class="skill_name">{{ item }}</div>
+              <div class="skill_progress">
+                <span style="width: 80%"></span>
+              </div>
+              <div class="skill_per">80%</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="resume_right">
+      <div class="resume_item resume_about">
+        <div class="title">
+          <p class="bold">About us</p>
+        </div>
+        <p>{{ data.BasicInfo?.summary }}</p>
+      </div>
+
+      <div class="resume_item resume_work">
+        <div class="title">
+          <p class="bold">Work Experience</p>
+        </div>
+        <ul>
+          <li *ngFor="let item of data.experiences">
+            <div class="date">{{ item.startDate }} - {{ item.endDate }}</div>
+            <div class="info">
+              <p class="semi-bold">{{ item.companyName }}</p>
+              <p>
+                {{ item.position }}
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="resume_item resume_education">
+        <div class="title">
+          <p class="bold">Education</p>
+        </div>
+        <ul>
+          <li *ngFor="let item of data.education">
+            <div class="date">{{ item.passingYear }}</div>
+            <div class="info">
+              <p class="semi-bold">{{ item.course }}({{ item.school }})</p>
+              <p>{{ item.percentage }}<i class="fab fa-percentage"></i></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
