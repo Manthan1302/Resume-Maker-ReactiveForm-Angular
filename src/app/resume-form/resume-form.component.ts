@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class ResumeFormComponent {
   genders = ['Male', 'Female'];
   countries = ['India', 'America', 'Japan', 'Nepal'];
+  isSubmitted=false;
   ResumeForm!: FormGroup;
   url!: string;
 
@@ -103,7 +104,7 @@ export class ResumeFormComponent {
   AddResumeData() {
     console.log(this.ResumeForm);
     // this.url='./assets/banner1.png'
-
+    this.isSubmitted=true
     this.resumeService.data = this.ResumeForm.value;
     console.log(this.resumeService.data);
     // this.router.navigate(['/design2']);
